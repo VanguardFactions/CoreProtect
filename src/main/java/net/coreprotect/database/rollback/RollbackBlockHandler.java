@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import net.coreprotect.event.CoreProtectPreBlockRollbackEvent;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -58,6 +59,9 @@ public class RollbackBlockHandler extends Queue {
         int unixtimestamp = (int) (System.currentTimeMillis() / 1000L);
 
         try {
+            if (!new CoreProtectPreBlockRollbackEvent(block, rollbackType, rowUser).callEvent()) {
+                return false;
+            }
             if (changeBlock) {
                 /* If modifying the head of a piston, update the base piston block to prevent it from being destroyed */
                 if (changeBlockData instanceof PistonHead) {
