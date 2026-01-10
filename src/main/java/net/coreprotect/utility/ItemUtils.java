@@ -398,7 +398,6 @@ public class ItemUtils {
             String name = StringUtils.capitalize(item.getType().name().replace("_", " "), true);
             message.insert(0, Color.AQUA + Color.ITALIC + name);
         }
-
         return message.toString();
     }
     

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.coreprotect.api.ChestAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -88,6 +89,13 @@ public class CoreProtectAPI extends Queue {
      */
     public int APIVersion() {
         return API_VERSION;
+    }
+
+    public List<String[]> chestLookup(Block block, int time) {
+        if (isEnabled()) {
+            return ChestAPI.performLookup(block, time);
+        }
+        return null;
     }
 
     /**

@@ -62,7 +62,7 @@ dependencies {
 group = "net.coreprotect"
 version = "23.1-VANGUARD"
 description = "coreprotect"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_21
 
 publishing {
     publications {
